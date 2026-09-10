@@ -31,14 +31,14 @@ public class User {
     @Column(name="password", unique = false, nullable = false)
     private String password;
 
-    @Column(name="biography", unique = false, nullable = true)
+    @Column(name="biography", unique = false, nullable = true, columnDefinition = "TEXT")
     private String biography;
 
     @Column(name="website_link", unique = false, nullable = true)
     private String websiteLink;
 
     @Column(name="reading_goal", unique = false, nullable = false)
-    private int readingGoal = 1;
+    private Integer readingGoal = 1;
 
     @Enumerated(EnumType.STRING)
     @Column(name="page_number_format", unique = false, nullable = false)

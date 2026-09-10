@@ -36,16 +36,16 @@ public class Book {
     private String datePublished;
 
     @Column(name="total_pages", unique = false, nullable = false)
-    private int totalPages;
+    private Integer totalPages;
 
-    @Column(name="overview", unique=false, nullable = false)
+    @Column(name="overview", unique=false, nullable = false, columnDefinition = "TEXT")
     private String overview;
 
     @Column(name="cover_image_url", unique = true, nullable = false)
     private String coverImageUrl;
 
     @Column(name="average_rating", unique = false, nullable = false)
-    private double averageRating;
+    private Double averageRating;
 
     @ManyToMany
     @JoinTable(name="book_genres", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name="genre_id"))

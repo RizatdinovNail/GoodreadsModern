@@ -20,10 +20,10 @@ public class UserBook {
     private Status status = Status.WANT_TO_READ;
 
     @Column(name="current_page", unique = false, nullable = false)
-    private int currentPage = 0;
+    private Integer currentPage = 0;
 
     @Column(name="rating", unique = false, nullable = true)
-    private int rating;
+    private Integer rating;
 
     @Column(name="date_started", unique = false, nullable = true)
     private LocalDateTime dateStarted;
