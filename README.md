@@ -1,4 +1,4 @@
-# BOOK CATALOG BACKEND API
+# GoodreadsModern
 
 A RESTful web service built with Java, Spring Boot, Spring Data JPA, and an H2 in-memory database. This application provides a service layer and REST endpoints for managing a library catalog, supporting full Create, Read, Update, and Delete (CRUD) operations for book records.
 
@@ -21,7 +21,7 @@ Prerequisites:
 Installation and Execution:
 1. Clone the repository:
    git clone https://github.com/RizatdinovNail/GoodreadsModern
-   cd book-catalog-backend
+   cd GoodreadsModern
 
 3. Compile and package the application:
    ./mvnw clean package
