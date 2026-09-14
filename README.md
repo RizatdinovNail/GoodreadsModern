@@ -1,1 +1,81 @@
-# Book Catalog Backend API`n`nA RESTful web service built with Java, Spring Boot, Spring Data JPA, and an H2 in-memory database. This application provides a service layer and REST endpoints for managing a library catalog, supporting full Create, Read, Update, and Delete (CRUD) operations for book records.`n`n---`n`n## Technical Architecture`n`n* **Language:** Java 17+`n* **Framework:** Spring Boot 3`n* **Persistence Layer:** Spring Data JPA / Hibernate`n* **Database:** H2 In-Memory Database`n* **Build Management:** Apache Maven`n`n---`n`n## Getting Started`n`n### Prerequisites`n`n* Java Development Kit (JDK) 17 or higher`n* Apache Maven 3.8+ (or use the included Maven wrapper `./mvnw`)`n`n### Installation and Execution`n`n1. Clone the repository:`n   ```bash`n   git clone [https://github.com/your-username/book-catalog-backend.git](https://github.com/your-username/book-catalog-backend.git)`n   cd book-catalog-backend`n   ````n`n2. Compile and package the application:`n   ```bash`n   ./mvnw clean package`n   ````n`n3. Run the application:`n   ```bash`n   ./mvnw spring-boot:run`n   ````n`nThe server will initialize on port 8080 (`http://localhost:8080`).`n`n---`n`n## Database Access and Management`n`nThe application utilizes an H2 in-memory relational database. Schema generation and data seeding occur automatically upon application startup.`n`n### Web Console Access`n`nTo inspect tables and execute raw SQL queries:`n`n1. Launch the application.`n2. Navigate to `http://localhost:8080/h2-console` in a browser.`n3. Configure the connection settings:`n   * **JDBC URL:** `jdbc:h2:mem:testdb``n   * **User Name:** `sa``n   * **Password:** *(leave blank)*`n4. Select **Connect**.`n`n---`n`n## API Specification`n`n### Book Endpoints`n`n| HTTP Method | Endpoint | Description |`n| :--- | :--- | :--- |`n| `GET` | `/api/books` | Retrieve all registered books |`n| `GET` | `/api/books/{id}` | Retrieve a specific book by ID |`n| `POST` | `/api/books` | Create a new book record |`n| `PUT` | `/api/books/{id}` | Update an existing book record |`n| `DELETE` | `/api/books/{id}` | Remove a book record by ID |`n`n#### Sample Request Payload (`POST /api/books`)`n`n```json`n{`n  "title": "The Hobbit",`n  "author": "J.R.R. Tolkien",`n  "overview": "The Hobbit is set within Tolkien's Middle-earth and follows the quest of home-loving Bilbo Baggins to win a share of the treasure guarded by Smaug the dragon."`n}`n````n`n---`n`n## Data Model Specifications`n`nTo accommodate detailed book summaries without string truncation errors, the `overview` field in the `Book` entity is configured as an unconstrained text column:`n`n```java`n@Column(name = "overview", columnDefinition = "TEXT", nullable = false)`nprivate String overview;`n````n`n---`n`n## Testing`n`nExecute the test suite using Maven:`n`n```bash`n./mvnw test`n```
+# BOOK CATALOG BACKEND API
+
+A RESTful web service built with Java, Spring Boot, Spring Data JPA, and an H2 in-memory database. This application provides a service layer and REST endpoints for managing a library catalog, supporting full Create, Read, Update, and Delete (CRUD) operations for book records.
+
+
+## TECHNICAL ARCHITECTURE
+
+- Language: Java 17+
+- Framework: Spring Boot 3
+- Persistence Layer: Spring Data JPA / Hibernate
+- Database: H2 In-Memory Database
+- Build Management: Apache Maven
+
+
+## GETTING STARTED
+
+Prerequisites:
+- Java Development Kit (JDK) 17 or higher
+- Apache Maven 3.8+ (or use the included Maven wrapper ./mvnw)
+
+Installation and Execution:
+1. Clone the repository:
+   git clone https://github.com/RizatdinovNail/GoodreadsModern
+   cd book-catalog-backend
+
+3. Compile and package the application:
+   ./mvnw clean package
+
+4. Run the application:
+   ./mvnw spring-boot:run
+
+5. Run frontend
+   npm run dev
+
+The server will initialize on port 8080 (http://localhost:8080).
+
+
+## DATABASE ACCESS AND MANAGEMENT
+
+The application utilizes an H2 in-memory relational database. Schema generation and data seeding occur automatically upon application startup.
+
+Web Console Access:
+To inspect tables and execute raw SQL queries:
+1. Launch the application.
+2. Navigate to http://localhost:8080/h2-console in a browser.
+3. Configure the connection settings:
+   - JDBC URL: jdbc:h2:mem:testdb
+   - User Name: sa
+   - Password: (leave blank)
+4. Select Connect.
+
+
+## API SPECIFICATION
+
+Book Endpoints:
+- GET /api/books - Retrieve all registered books
+- GET /api/books/{id} - Retrieve a specific book by ID
+- POST /api/books - Create a new book record
+- PUT /api/books/{id} - Update an existing book record
+- DELETE /api/books/{id} - Remove a book record by ID
+
+Sample Request Payload (POST /api/books):
+{
+  "title": "The Hobbit",
+  "author": "J.R.R. Tolkien",
+  "overview": "The Hobbit is set within Tolkien's Middle-earth and follows the quest of home-loving Bilbo Baggins to win a share of the treasure guarded by Smaug the dragon."
+}
+
+
+## DATA MODEL SPECIFICATIONS
+
+To accommodate detailed book summaries without string truncation errors, the overview field in the Book entity is configured as an unconstrained text column:
+
+@Column(name = "overview", columnDefinition = "TEXT", nullable = false)
+private String overview;
+
+
+## TESTING
+
+Execute the test suite using Maven:
+./mvnw test
